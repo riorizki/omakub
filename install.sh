@@ -21,6 +21,9 @@ if [[ "$XDG_CURRENT_DESKTOP" == *"GNOME"* ]]; then
   gsettings set org.gnome.desktop.screensaver lock-enabled false
   gsettings set org.gnome.desktop.session idle-delay 0
 
+  # Revert to normal idle and lock settings if the installation fails
+  trap 'gsettings set org.gnome.desktop.screensaver lock-enabled true; gsettings set org.gnome.desktop.session idle-delay 300; echo "Omakub installation failed! You can retry by running: source ~/.local/share/omakub/install.sh"' ERR
+
   echo "Installing terminal and desktop tools..."
 
   # Install terminal tools
