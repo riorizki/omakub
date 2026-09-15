@@ -12,4 +12,5 @@ Icon=/home/$USER/.local/share/omakub/applications/icons/HEY.png
 Categories=GTK;
 MimeType=text/html;text/xml;application/xhtml_xml;
 StartupNotify=true
+StartupWMClass=chrome-app.hey.com__-Default
 EOF
