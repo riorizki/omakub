@@ -22,7 +22,8 @@ rm -rf ~/.local/share/omakub
 git clone "https://github.com/${OMAKUB_REPO:-riorizki/omakub}.git" ~/.local/share/omakub >/dev/null
 if [[ -n $OMAKUB_REF && $OMAKUB_REF != "master" ]]; then
 	cd ~/.local/share/omakub
-	git fetch origin "$OMAKUB_REF" && git checkout "$OMAKUB_REF"
+	git fetch origin "$OMAKUB_REF"
+	git checkout "$OMAKUB_REF"
 	cd -
 fi
 
