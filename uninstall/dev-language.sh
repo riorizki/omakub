@@ -22,7 +22,8 @@ if [[ -n $languages ]]; then
       mise uninstall go@latest
       ;;
     PHP)
-      sudo apt -y purge php php-{curl,apcu,intl,mbstring,opcache,pgsql,mysql,sqlite3,redis,xml,zip}
+      php_opcache=$(apt-get install -s php-opcache &>/dev/null && echo php-opcache || true)
+      sudo apt -y purge php php-{curl,apcu,intl,mbstring,pgsql,mysql,sqlite3,redis,xml,zip} $php_opcache
       sudo apt -y autoremove
       sudo rm /usr/local/bin/composer
       ;;
