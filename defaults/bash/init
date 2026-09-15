@@ -9,6 +9,9 @@ fi
 if command -v fzf &> /dev/null; then
   if [[ -f /usr/share/bash-completion/completions/fzf ]]; then
     source /usr/share/bash-completion/completions/fzf
+  elif [[ -f /usr/share/doc/fzf/examples/completion.bash ]]; then
+    # Ubuntu 26.04 ships the fzf completion script only as an example
+    source /usr/share/doc/fzf/examples/completion.bash
   fi
   if [[ -f /usr/share/doc/fzf/examples/key-bindings.bash ]]; then
     source /usr/share/doc/fzf/examples/key-bindings.bash
