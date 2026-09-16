@@ -4,7 +4,17 @@
 set -e
 
 # Give people a chance to retry running the installation
-trap 'echo "Omakub installation failed! You can retry by running: source ~/.local/share/omakub/install.sh"' ERR
+omakub_install_failed() {
+  echo "Omakub installation failed!"
+  [[ -n $OMAKUB_INSTALL_LOG ]] && echo "The full output is saved in $OMAKUB_INSTALL_LOG"
+
+  if command -v gum &>/dev/null && gum confirm "Retry the installation?"; then
+    exec bash ~/.local/share/omakub/install.sh
+  fi
+
+  echo "You can retry later by running: source ~/.local/share/omakub/install.sh"
+}
+trap omakub_install_failed ERR
 
 # Check the distribution name and version and abort if incompatible
 source ~/.local/share/omakub/install/check-version.sh
@@ -22,7 +32,7 @@ if [[ "$XDG_CURRENT_DESKTOP" == *"GNOME"* ]]; then
   gsettings set org.gnome.desktop.session idle-delay 0
 
   # Revert to normal idle and lock settings if the installation fails
-  trap 'gsettings set org.gnome.desktop.screensaver lock-enabled true; gsettings set org.gnome.desktop.session idle-delay 300; echo "Omakub installation failed! You can retry by running: source ~/.local/share/omakub/install.sh"' ERR
+  trap 'gsettings set org.gnome.desktop.screensaver lock-enabled true; gsettings set org.gnome.desktop.session idle-delay 300; omakub_install_failed' ERR
 
   echo "Installing terminal and desktop tools..."
 

@@ -28,4 +28,8 @@ if [[ -n $OMAKUB_REF && $OMAKUB_REF != "master" ]]; then
 fi
 
 echo "Installation starting..."
-source ~/.local/share/omakub/install.sh
+mkdir -p ~/.local/state/omakub
+export OMAKUB_INSTALL_LOG="$HOME/.local/state/omakub/install-$(date +%Y%m%d-%H%M%S).log"
+
+# Save everything the installer prints while keeping a real terminal for its prompts
+script -qefc "bash ~/.local/share/omakub/install.sh" "$OMAKUB_INSTALL_LOG" </dev/tty
