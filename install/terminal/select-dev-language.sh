@@ -25,7 +25,8 @@ if [[ -n "$languages" ]]; then
     PHP)
       # PHP 8.5+ (Ubuntu 26.04) builds OPcache into core and ships no php-opcache package
       php_opcache=$(apt-get install -s php-opcache &>/dev/null && echo php-opcache || true)
-      sudo apt -y install php php-{curl,apcu,intl,mbstring,pgsql,mysql,sqlite3,redis,xml,zip} $php_opcache --no-install-recommends
+      # php-cli instead of the php metapackage, which also pulls in Apache and mod_php
+      sudo apt -y install php-cli php-{curl,apcu,intl,mbstring,pgsql,mysql,sqlite3,redis,xml,zip} $php_opcache --no-install-recommends
       php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
       php composer-setup.php --quiet && sudo mv composer.phar /usr/local/bin/composer
       rm composer-setup.php
@@ -39,7 +40,8 @@ if [[ -n "$languages" ]]; then
       mise x elixir -- mix local.hex --force
       ;;
     Rust)
-      bash -c "$(curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs)" -- -y
+      # libraries.sh installs rustc from apt so Ruby can build YJIT, so let rustup coexist with it
+      RUSTUP_INIT_SKIP_PATH_CHECK=yes bash -c "$(curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs)" -- -y
       ;;
     Java)
       mise use --global java@latest

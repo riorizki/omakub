@@ -23,7 +23,7 @@ if [[ -n $languages ]]; then
       ;;
     PHP)
       php_opcache=$(apt-get install -s php-opcache &>/dev/null && echo php-opcache || true)
-      sudo apt -y purge php php-{curl,apcu,intl,mbstring,pgsql,mysql,sqlite3,redis,xml,zip} $php_opcache
+      sudo apt -y purge php php-cli php-{curl,apcu,intl,mbstring,pgsql,mysql,sqlite3,redis,xml,zip} $php_opcache
       sudo apt -y autoremove
       sudo rm /usr/local/bin/composer
       ;;
