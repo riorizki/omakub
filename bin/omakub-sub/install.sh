@@ -21,6 +21,7 @@ CHOICES=(
   "Spotify           Stream music from the world's most popular service"
   "Steam             Play games from Valve's store"
   "Tailscale         Mesh VPN based on WireGuard and with Magic DNS"
+  "Typora            Markdown editor with live preview"
   "VirtualBox        Virtual machines to run Windows/Linux"
   "Zoom              Attend and host video chat meetings"
   "Web Apps          Install web apps with their own icon and shell"
