@@ -2,7 +2,8 @@
 
 # Brave Origin is Brave without Rewards, Wallet, VPN, Leo, and News. It is free on Linux.
 # See https://brave.com/origin/
-if [ ! -f /etc/apt/sources.list.d/brave-browser-release.list ]; then
+# Skip when the repository is already configured, for example by Brave's own brave-browser.sources
+if ! grep -Rqs brave-browser-apt-release.s3.brave.com /etc/apt/sources.list.d/; then
   [ -f /usr/share/keyrings/brave-browser-archive-keyring.gpg ] && sudo rm /usr/share/keyrings/brave-browser-archive-keyring.gpg
   sudo curl -fsSLo /usr/share/keyrings/brave-browser-archive-keyring.gpg https://brave-browser-apt-release.s3.brave.com/brave-browser-archive-keyring.gpg
   echo "deb [signed-by=/usr/share/keyrings/brave-browser-archive-keyring.gpg arch=amd64] https://brave-browser-apt-release.s3.brave.com/ stable main" | sudo tee /etc/apt/sources.list.d/brave-browser-release.list

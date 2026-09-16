@@ -8,7 +8,6 @@ CHOICES=(
   "Audacity          Record and edit audio"
   "ASDControl        Set brightness on Apple Studio and XDR displays"
   "Brave             Chrome-based browser with built-in ad blocking"
-  "Brave Origin      Brave without Rewards, Wallet, VPN, Leo, and News"
   "Dropbox           Sync files across computers with ease"
   "Discord           Communication platform for voice, video, and text messaging"
   "Ghostty           GPU-accelerated terminal with tabs and splits"
