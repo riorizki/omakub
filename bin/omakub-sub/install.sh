@@ -11,6 +11,7 @@ CHOICES=(
   "Brave Origin      Brave without Rewards, Wallet, VPN, Leo, and News"
   "Dropbox           Sync files across computers with ease"
   "Discord           Communication platform for voice, video, and text messaging"
+  "Ghostty           GPU-accelerated terminal with tabs and splits"
   "Gimp              Image manipulation tool ala Photoshop"
   "Geekbench         CPU benchmaking tool"
   "Mainline Kernels  Install newer Linux kernels than Ubuntu defaults"
@@ -28,7 +29,7 @@ CHOICES=(
   "<< Back           "
 )
 
-CHOICE=$(gum choose "${CHOICES[@]}" --height 26 --header "Install application")
+CHOICE=$(gum choose "${CHOICES[@]}" --height 28 --header "Install application")
 
 if [[ "$CHOICE" == "<< Back"* ]] || [[ -z "$CHOICE" ]]; then
   # Don't install anything

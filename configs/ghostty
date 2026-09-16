@@ -1,0 +1,48 @@
+# ── Font ──────────────────────────────────────────
+font-family             = BerkeleyMono Nerd Font Mono
+font-size               = 13
+
+# ── Theme ─────────────────────────────────────────
+theme                   = Catppuccin Mocha
+
+# ── Window ────────────────────────────────────────
+window-padding-x        = 12
+window-padding-y        = 12
+window-padding-balance  = true
+window-decoration       = server
+window-height           = 32
+window-width            = 110
+
+# ── Background ────────────────────────────────────
+background-opacity      = 0.85
+background-blur         = true
+
+# ── Cursor ────────────────────────────────────────
+cursor-style            = bar
+cursor-style-blink      = true
+
+# ── Terminal ──────────────────────────────────────
+copy-on-select          = clipboard
+confirm-close-surface   = false
+mouse-hide-while-typing = true
+shell-integration-features = cursor,sudo
+link-url                = true
+
+# ── Splits & Tabs ─────────────────────────────────
+keybind = ctrl+shift+d=new_split:right
+keybind = ctrl+shift+e=new_split:down
+keybind = ctrl+shift+h=goto_split:left
+keybind = ctrl+shift+l=goto_split:right
+keybind = ctrl+shift+k=goto_split:up
+keybind = ctrl+shift+j=goto_split:down
+keybind = ctrl+shift+t=new_tab
+keybind = ctrl+shift+w=close_surface
+
+# ── Clipboard ─────────────────────────────────────
+keybind = ctrl+shift+c=copy_to_clipboard
+keybind = ctrl+shift+v=paste_from_clipboard
+
+# ── Font Size ─────────────────────────────────────
+keybind = ctrl+equal=increase_font_size:1
+keybind = ctrl+minus=decrease_font_size:1
+keybind = ctrl+zero=reset_font_size
