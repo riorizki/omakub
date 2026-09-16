@@ -6,7 +6,7 @@ set_font() {
 	local file_type=$3
 	local file_name="${font_name/ Nerd Font/}"
 
-	if ! $(fc-list | grep -i "$font_name" >/dev/null); then
+	if ! fc-list | grep -qi "$font_name"; then
 		cd /tmp
 		wget -O "$file_name.zip" "$url"
 		unzip "$file_name.zip" -d "$file_name"
