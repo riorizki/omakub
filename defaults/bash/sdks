@@ -1,0 +1,24 @@
+# Android Studio installs the SDK here by default and never configures the shell,
+# so declare the variable and only add the directories that actually exist
+export ANDROID_HOME="$HOME/Android/Sdk"
+
+path_append "$ANDROID_HOME/platform-tools"
+path_append "$ANDROID_HOME/emulator"
+
+# The SDK Manager installs "cmdline-tools;latest" into cmdline-tools/latest.
+# Only go looking for a versioned directory when that one is missing.
+if [ -d "$ANDROID_HOME/cmdline-tools/latest/bin" ]; then
+  path_append "$ANDROID_HOME/cmdline-tools/latest/bin"
+elif [ -d "$ANDROID_HOME/cmdline-tools" ]; then
+  path_append "$(find "$ANDROID_HOME/cmdline-tools" -maxdepth 2 -name bin -type d 2>/dev/null | sort -V | tail -1)"
+fi
+
+# The Flutter tarball is a git checkout, so "flutter upgrade" works in place
+export FLUTTER_HOME="$HOME/.local/share/flutter"
+path_append "$FLUTTER_HOME/bin"
+
+# Written by the first flutter run, so it is missing right after installing
+export DART_HOME="$FLUTTER_HOME/bin/cache/dart-sdk"
+path_append "$DART_HOME/bin"
+
+path_append "$HOME/.pub-cache/bin"

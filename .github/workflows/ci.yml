@@ -14,10 +14,10 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: Check shell syntax
-        run: git ls-files '*.sh' bin/omakub defaults/bash/{aliases,functions,init,prompt,rc,shell} | xargs -n1 bash -n
+        run: git ls-files '*.sh' bin/omakub defaults/bash/{aliases,functions,init,prompt,rc,sdks,shell} | xargs -n1 bash -n
 
       - name: Run ShellCheck for errors
-        run: git ls-files '*.sh' bin/omakub defaults/bash/{aliases,functions,init,prompt,rc,shell} | xargs shellcheck -S error -s bash
+        run: git ls-files '*.sh' bin/omakub defaults/bash/{aliases,functions,init,prompt,rc,sdks,shell} | xargs shellcheck -S error -s bash
 
   apt-packages:
     runs-on: ubuntu-latest
