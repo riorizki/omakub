@@ -45,6 +45,9 @@ export PATH="$OMAKUB_PATH/bin:$PATH"
 - Ghostty is an optional terminal on Ubuntu 26.04.
 - Omakub no longer installs Basecamp and HEY by default. Pick them from `omakub`, Install, Web Apps.
 - Choosing PHP installs `php-cli`, which leaves Apache out.
+- Android Studio installs from Google's tarball and adds you to the `kvm` group, which is all the Android emulator needs for hardware acceleration.
+- Flutter installs the current stable release from Google's release manifest. `omakub`, Update, Flutter runs `flutter upgrade`.
+- `ANDROID_HOME` and `FLUTTER_HOME` are always declared, but their directories only join `PATH` once they exist.
 
 ## Contributing to the documentation
 

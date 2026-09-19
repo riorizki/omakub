@@ -5,11 +5,13 @@ CHOICES=(
   "Dev Language      Install programming language environment"
   "Dev Database      Install development database in Docker"
   "1password         Manage your passwords securely across devices"
+  "Android Studio    Official IDE for Android development"
   "Audacity          Record and edit audio"
   "ASDControl        Set brightness on Apple Studio and XDR displays"
   "Brave             Chrome-based browser with built-in ad blocking"
   "Dropbox           Sync files across computers with ease"
   "Discord           Communication platform for voice, video, and text messaging"
+  "Flutter           SDK for building cross-platform apps"
   "Ghostty           GPU-accelerated terminal with tabs and splits"
   "Gimp              Image manipulation tool ala Photoshop"
   "Geekbench         CPU benchmaking tool"
@@ -28,7 +30,7 @@ CHOICES=(
   "<< Back           "
 )
 
-CHOICE=$(gum choose "${CHOICES[@]}" --height 28 --header "Install application")
+CHOICE=$(gum choose "${CHOICES[@]}" --height 30 --header "Install application")
 
 if [[ "$CHOICE" == "<< Back"* ]] || [[ -z "$CHOICE" ]]; then
   # Don't install anything
